@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-
+import Navegacion from '../components/Navegacion'
 
 const AnimesPage = () => {
 
@@ -26,7 +26,7 @@ const AnimesPage = () => {
 
   return (
     <div>
-        <h1>AnimesPage</h1>
+        <Navegacion/>
     <figure>
     {
         animes.map(anime => 
