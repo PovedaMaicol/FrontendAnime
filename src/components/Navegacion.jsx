@@ -6,7 +6,9 @@ const Navegacion = () => {
   return (
 
 <Navbar collapseOnSelect expand="lg" bg='dark' variant="dark" style={{paddingLeft: '15px', position: 'absolute', width: '100%', zIndex: '3'}}>
+  
 <h1 style={{color: 'white'}}>Otaku fan</h1>
+<i style={{color: 'white'}}className='bx bxs-user'></i>
 
   <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{border: '1px solid white'}}/>
   
