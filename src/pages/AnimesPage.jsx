@@ -1,33 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useEffect } from 'react'
+import './styles/animesPage.css'
 import Navegacion from '../components/Navegacion'
+import useFetch from '../hooks/useFetch'
 
 const AnimesPage = () => {
-
-    const [animes, setAnimes] = useState([])
+   
+    const { data: animes, fetchData, loading, error } = useFetch();
  
 
 
     useEffect(() => {
-     const url = `https://api.jikan.moe/v4/anime` 
-     axios
-      .get(url)
-      .then(response => {
-      console.log('datos recibidos: ', response.data.data)
-      setAnimes(response.data.data) 
-    
-    })
-    .catch(error => {
-      console.log(error)
-    })
-    
-      }, [])
+     const url = `https://api.jikan.moe/v4/anime`;
+     fetchData(url);
+    }, []);
+
+    if (loading) return <p>Cargando animes...</p>;
+    if (error)  return <p>Hubo un error al cargar los animes</p>;
 
 
   return (
     <div>
         <Navegacion/>
-    <figure>
+    <figure className='container-cards'>
     {
         animes.map(anime => 
             <img className='anime_img' key={anime.mal_id} src={anime.images.jpg.image_url}>
