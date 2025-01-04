@@ -5,7 +5,20 @@ import { Link } from 'react-router-dom';
 const Navegacion = () => {
   return (
 
-<Navbar collapseOnSelect expand="lg" bg='dark' variant="dark" style={{paddingLeft: '15px', position: 'absolute', width: '100%', zIndex: '3'}}>
+<Navbar 
+collapseOnSelect 
+expand="lg" 
+bg='dark' 
+variant="dark" 
+style={{
+  paddingLeft: '15px', 
+  paddingRight: '15px', 
+  position: 'fixed',
+  top: '0',
+  width: '100%', 
+  zIndex: '3'
+  }}
+  >
   
 <h1 style={{color: 'white'}}>Otaku fan</h1>
 <i style={{color: 'white'}}className='bx bxs-user'></i>

@@ -10,6 +10,7 @@ const useFetch = () => {
         try {
             setLoading(true);
             const response = await axios.get(url);
+            console.log("datos obtenidos:", response.data.data)
             setData(response.data.data); // La lista de animes está aquí
         } catch (err) {
             setError(err.message);
