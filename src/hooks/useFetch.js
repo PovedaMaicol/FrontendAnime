@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const useFetch = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([] || null); // Inicializa como `null` para manejar objetos
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
