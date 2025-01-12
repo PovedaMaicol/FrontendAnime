@@ -3,10 +3,13 @@ import './styles/animesPage.css'
 import useFetch from '../hooks/useFetch'
 import AnimeCard from '../components/AnimeCard'
 import { Link } from 'react-router-dom';
+import Carrusel from '../components/Carrusel';
 
 const AnimesPage = () => {
     const { data: animes, fetchData, loading, error } = useFetch();
 
+
+    // en animes tengo todos los animes
   
 
     useEffect(() => {
@@ -19,6 +22,8 @@ const AnimesPage = () => {
 
     return (
         <div>
+<Carrusel animes={animes}/>
+        
             <div className='container-cards'>
                 {animes.map((anime) => (
                     <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>

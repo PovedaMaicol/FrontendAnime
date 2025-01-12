@@ -1,0 +1,11 @@
+.container_acordeon {
+    display: flex;
+    width: 100%;
+}
+
+.carousel_img {
+    height: 50vh;
+    width: 50%;
+    background-color: orange;
+
+}
