@@ -22,7 +22,7 @@ const Carrusel = ({ animes }) => {
   }, [animes]);
 
   return (
-    <Carousel>
+    <Carousel style={{height: '100px'}}>
       {randomAnimes.map((anime, index) => (
         <Carousel.Item key={index}>
           <img

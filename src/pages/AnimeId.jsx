@@ -36,7 +36,7 @@ const AnimeId = () => {
           <h2>{animeId.title}</h2>
 
           <div className="genres">
-           
+          <p>Generos:</p>
             {animeId.genres.map((genre) => (
               <span key={genre.mal_id} className="genre">
                 {genre.name}

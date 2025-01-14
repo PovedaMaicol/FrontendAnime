@@ -6,15 +6,16 @@ import AnimesPage from './pages/AnimesPage'
 import AnimeCard from './components/AnimeCard'
 import AnimeId from './pages/AnimeId'
 
+
+
+
+
+
 function App() {
-
-
- 
-
 
   return (
     <div>
-      <Navegacion/>
+      <Navegacion />
 
       <div style={{paddingTop: '60px'}}>
     <Routes>
