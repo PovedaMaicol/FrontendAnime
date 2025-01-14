@@ -4,6 +4,7 @@ import useFetch from '../hooks/useFetch';
 import AnimeCard from '../components/AnimeCard';
 import { Link } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
+import BotonChange from '../components/BotonChange'
 
 const AnimesPage = () => {
   // Hook para manejar la petición al servidor
@@ -42,6 +43,7 @@ const AnimesPage = () => {
         setSearchTerm={setSearchTerm} 
         handleSearch={handleSearch} 
       />
+<BotonChange/>
 
       <div className="container-cards">
         {/* Mostrar mensaje si no hay resultados */}

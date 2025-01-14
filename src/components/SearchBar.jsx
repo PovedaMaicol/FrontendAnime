@@ -5,7 +5,7 @@ const SearchBar = ({handleSearch, searchTerm, setSearchTerm}) => {
  
 
   return (
-    <Form className="d-flex" onSubmit={handleSearch}>
+    <Form className="d-flex" onSubmit={handleSearch} style={{padding: '0 15px 0 15px'}}>
       <FormControl
         type="search"
         placeholder="Buscar..."
@@ -14,7 +14,7 @@ const SearchBar = ({handleSearch, searchTerm, setSearchTerm}) => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <Button variant="primary" type="submit">
-        Buscar
+      <i className='bx bx-search'></i>
       </Button>
     </Form>
   );

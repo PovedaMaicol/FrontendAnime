@@ -1,10 +1,13 @@
 .container-cards {
     display: grid;
-    flex-wrap:nowrap;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: repeat(2, auto);
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columna adaptable */
     column-gap: 10px;
     gap: 10px;
     justify-content: center;
     padding: 20px;
+}
+
+.container-cards:has(.card:nth-child(1):only-child) {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
 }

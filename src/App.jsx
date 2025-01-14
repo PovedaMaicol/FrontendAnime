@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import AnimesPage from './pages/AnimesPage'
 import AnimeCard from './components/AnimeCard'
 import AnimeId from './pages/AnimeId'
-
+import './App.css'
 
 
 
@@ -14,7 +14,7 @@ import AnimeId from './pages/AnimeId'
 function App() {
 
   return (
-    <div>
+    <div className='first_container'>
       <Navegacion />
 
       <div style={{paddingTop: '60px'}}>
