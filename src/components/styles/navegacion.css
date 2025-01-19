@@ -1,0 +1,29 @@
+.container_menu {
+    padding-left: 15px;
+    padding-right: 15px; 
+    position: 'fixed';
+    top: '0';
+    width: '100%';
+    z-index: 5;
+    background: rgb(34,193,195);
+    background: linear-gradient(261deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+.container_searchmenu {
+    width: 25%;
+ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bx-search {
+    color: white;
+    font-size: 20px;
+}
+
+.icono_hamburguesa {
+    border: none;
+    padding: 0;
+    color: white;
+}

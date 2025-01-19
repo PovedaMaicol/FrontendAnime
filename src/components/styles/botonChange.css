@@ -1,0 +1,31 @@
+.container_buttons {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+}
+
+.container_buttons button {
+    background-color: transparent;
+    color: black;
+    border: 1px solid gray;
+   
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+.btn1 {
+    border-radius: 5px 0 0 5px;
+}
+
+.btn2 {
+    border-radius: 0 5px 5px 0;
+}
+.btn1:active {
+
+    transform: scale(1.1); /* Incrementa el tamaño un 10% */
+}
+
+.btn2:active {
+
+    transform: scale(1.1); /* Incrementa el tamaño un 10% */
+}

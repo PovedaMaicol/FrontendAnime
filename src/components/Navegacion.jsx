@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Navbar, Nav} from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import "./styles/navegacion.css"
 
 const Navegacion = () => {
   return (
@@ -10,20 +11,18 @@ collapseOnSelect
 expand="lg" 
 bg='dark' 
 variant="dark" 
-style={{
-  paddingLeft: '15px', 
-  paddingRight: '15px', 
-  position: 'fixed',
-  top: '0',
-  width: '100%', 
-  zIndex: '5'
-  }}
-  >
+className='container_menu'>
   
 <h1 style={{color: 'white'}}>Otaku fan</h1>
-<i style={{color: 'white'}}className='bx bxs-user'></i>
 
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{border: '1px solid white'}}/>
+
+
+
+<div className="container_searchmenu">
+
+<i className='bx bx-search'></i>
+
+<Navbar.Toggle aria-controls="responsive-navbar-nav" className='icono_hamburguesa'/>
   
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
@@ -50,6 +49,10 @@ style={{
       </Nav.Link>
     </Nav>
   </Navbar.Collapse>
+</div>
+
+
+  
   
 </Navbar>
 
