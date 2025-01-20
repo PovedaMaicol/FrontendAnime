@@ -27,7 +27,7 @@
   }
 
   .finished {
-    background-color: red; /* Cambia según el estado */
+    background-color: #f66632; /* Cambia según el estado */
   }
 
   .broadcast {
@@ -39,7 +39,7 @@
     top: 10px; /* Ajusta según lo necesario */
     right: 10px; /* Posiciona en la esquina superior derecha */
     padding: 5px 10px;
-    background-color: green;
+    background-color:#73bf8c;
     color: white;
     border-radius: 5px;
     font-size: x-small;

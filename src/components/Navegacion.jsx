@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Button, Navbar, Nav} from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import "./styles/navegacion.css"
 
-const Navegacion = () => {
+const Navegacion = ( { handleSearch }) => {
+
   return (
 
 <Navbar 
@@ -20,7 +21,7 @@ className='container_menu'>
 
 <div className="container_searchmenu">
 
-<i className='bx bx-search'></i>
+<i className='bx bx-search' onClick={() => handleSearch()}></i>
 
 <Navbar.Toggle aria-controls="responsive-navbar-nav" className='icono_hamburguesa'/>
   

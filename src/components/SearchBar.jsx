@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
 
-const SearchBar = ({handleSearch, searchTerm, setSearchTerm}) => {
+const SearchBar = ({handleSearch, searchTerm, setSearchTerm, setOpenSearch, openSearch}) => {
  
 
   return (
-    <Form className="d-flex" onSubmit={handleSearch} style={{padding: '0 15px 0 15px'}}>
+    <Form className="d-flex" onSubmit={handleSearch} style={{padding: '20px 20px 0 20px'}}>
       <FormControl
         type="search"
         placeholder="Buscar..."
@@ -13,7 +13,7 @@ const SearchBar = ({handleSearch, searchTerm, setSearchTerm}) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onClick={() => setOpenSearch(!openSearch)}>
       <i className='bx bx-search'></i>
       </Button>
     </Form>

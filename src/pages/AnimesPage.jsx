@@ -6,13 +6,17 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 import BotonChange from '../components/BotonChange'
 
-const AnimesPage = () => {
+const AnimesPage = ({ openSearch, setOpenSearch }) => {
   // Hook para manejar la petición al servidor
   const { data: animes, fetchData, loading, error } = useFetch();
 
   // Estado para manejar la búsqueda
   const [searchTerm, setSearchTerm] = useState("");
+  // // Estado animes mas populares
+  // const [showPopular, setShowPopular] = useState(false);
 
+  // Estado para manejar los animes populares
+  const [populares, setPopulares] = useState([]);
   // Función para manejar el evento de búsqueda
   const handleSearch = (e) => {
     e.preventDefault();
@@ -35,15 +39,34 @@ const AnimesPage = () => {
       )
     : animes;
 
+  // Filtrar animes populares
+  // const popularAnimes = animes.sort((a, b) => b.members - a.members);
+ 
+
+ 
+  // if(showPopular) {
+  //   setPopulares(filteredAnimes.sort((a, b) => b.members - a.members)) 
+  //   console.log('cuando oprimo el boton para populares es', populares)
+  // }
+ 
+
   return (
     <div>
-      {/* Barra de búsqueda */}
-      <SearchBar 
+{
+  openSearch && (
+<SearchBar 
         searchTerm={searchTerm} 
         setSearchTerm={setSearchTerm} 
         handleSearch={handleSearch} 
+        openSearch={openSearch}
+        setOpenSearch={setOpenSearch}
       />
-<BotonChange/>
+  )
+}
+      
+<BotonChange 
+animes={animes}
+/>
 
       <div className="container-cards">
         {/* Mostrar mensaje si no hay resultados */}
