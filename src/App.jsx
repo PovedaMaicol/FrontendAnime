@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import './App.css'
 import Navegacion from './components/Navegacion'
 
-import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AnimesPage from './pages/AnimesPage'
 import AnimeCard from './components/AnimeCard'
 import AnimeId from './pages/AnimeId'
 import './App.css'
-import FavoritesAnimes from './pages/FavoritesAnimes'
+// import FavoritesAnimes from './pages/FavoritesAnimes'
+import BotonChange from './components/BotonChange'
 
 
 
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className='first_container'>
       <Navegacion handleSearch={handleSearch} />
+  
 
       <div>
     <Routes>
@@ -34,7 +36,7 @@ function App() {
       openSearch={openSearch}
       setOpenSearch={setOpenSearch}
       />}/>
-      <Route path='favorites' element={<FavoritesAnimes />}/>
+      {/* <Route path='favorites' element={<FavoritesAnimes />}/> */}
       <Route path='anime/:id' element={<AnimeId />}/>
     </Routes>
     

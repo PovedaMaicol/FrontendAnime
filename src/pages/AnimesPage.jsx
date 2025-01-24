@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import './styles/animesPage.css';
-import useFetch from '../hooks/useFetch';
-import AnimeCard from '../components/AnimeCard';
-import { Link } from 'react-router-dom';
-import SearchBar from '../components/SearchBar';
-import BotonChange from '../components/BotonChange'
+import React, { useEffect, useState } from "react";
+import "./styles/animesPage.css";
+import useFetch from "../hooks/useFetch";
+import AnimeCard from "../components/AnimeCard";
+import { Link } from "react-router-dom";
+import SearchBar from "../components/SearchBar";
+import BotonChange from "../components/BotonChange";
+// import env from "react-dotenv";
 
 const AnimesPage = ({ openSearch, setOpenSearch }) => {
   // Hook para manejar la petición al servidor
@@ -12,20 +13,14 @@ const AnimesPage = ({ openSearch, setOpenSearch }) => {
 
   // Estado para manejar la búsqueda
   const [searchTerm, setSearchTerm] = useState("");
-  // // Estado animes mas populares
-  // const [showPopular, setShowPopular] = useState(false);
 
-  // Estado para manejar los animes populares
-  const [populares, setPopulares] = useState([]);
-  // Función para manejar el evento de búsqueda
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log("Buscando:", searchTerm);
-  };
+  // Estado para manejar si se muestran populares o no
+  const [showPopular, setShowPopular] = useState(false);
 
   // Obtener animes al cargar el componente
   useEffect(() => {
-    const url = `https://api.jikan.moe/v4/anime`;
+    const url = import.meta.env.VITE_API_URL;
+    // const url = 'https://api.jikan.moe/v4/anime'
     fetchData(url);
   }, []);
 
@@ -40,40 +35,38 @@ const AnimesPage = ({ openSearch, setOpenSearch }) => {
     : animes;
 
   // Filtrar animes populares
-  // const popularAnimes = animes.sort((a, b) => b.members - a.members);
- 
+  const popularAnimes = searchTerm 
+  ? animes.filter((anime) => 
+    anime.title.toLowerCase().includes(searchTerm.toLowerCase())
+     ) : [...animes].sort((a, b) => b.members - a.members);
 
- 
-  // if(showPopular) {
-  //   setPopulares(filteredAnimes.sort((a, b) => b.members - a.members)) 
-  //   console.log('cuando oprimo el boton para populares es', populares)
-  // }
- 
+  // Elegir qué lista de animes mostrar
+  const displayedAnimes = showPopular ? popularAnimes : filteredAnimes;
 
   return (
     <div>
-{
-  openSearch && (
-<SearchBar 
-        searchTerm={searchTerm} 
-        setSearchTerm={setSearchTerm} 
-        handleSearch={handleSearch} 
-        openSearch={openSearch}
-        setOpenSearch={setOpenSearch}
-      />
-  )
-}
-      
-<BotonChange 
-animes={animes}
-/>
+      {openSearch && (
+        <SearchBar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          handleSearch={(e) => e.preventDefault()}
+          openSearch={openSearch}
+          setOpenSearch={setOpenSearch}
+        />
+      )}
+
+
+      <BotonChange 
+      setShowPopular={setShowPopular}/>
 
       <div className="container-cards">
         {/* Mostrar mensaje si no hay resultados */}
-        {filteredAnimes.length === 0 ? (
-          <p>No se encontraron resultados para: <strong>{searchTerm}</strong></p>
+        {displayedAnimes.length === 0 ? (
+          <p>
+            No se encontraron resultados para: <strong>{searchTerm}</strong>
+          </p>
         ) : (
-          filteredAnimes.map((anime) => (
+          displayedAnimes.map((anime) => (
             <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
               <AnimeCard anime={anime} />
             </Link>
