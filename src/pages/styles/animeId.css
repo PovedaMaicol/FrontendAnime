@@ -1,26 +1,110 @@
-.first-section {
-display: flex;
-
-justify-content: space-between;
-}
-.first-section-info {
-   
-    margin-left: 15px;
-}
-.genres {
 
 
+
+
+.container-first{
+    width: 100%;
+justify-content: space-around;
+align-items: center;
+    display: flex;
 }
-.genre {
-    background-color: red;
-    border-radius: 2px;
-    padding: 2px;
-    font-size: 10px;
-    margin-right: 5px;
+
+
+.img-card{
+    width:  55%;
+    background-color: orange;
 }
-.container-img {
-    height: 33vh;
-    border-radius: 10px;
+
+.container-tablaGenre {
+    width: 40%;
+    height: 100%;
 }
+.tabla {
+    width: 100%;
+  margin: 0;
+  border: 1px solid rgba(0, 128, 0, 0.438);
+  border-radius: 5px;
+}
+
+.table-head {
+    background-color: orange;
+    font-size: small;
+    margin: 0;
+    padding: 0;
+}
+
+.table-body {
+    background-color: blue;
+    font-size: small;
+    margin: 0;
+    padding: 0;
+}
+
+.table-info {
+    height: 100%;
+    background-color: yellow;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-color-type: var(--bs-table-striped-color);
+    --bs-table-bg-type: rgb(141 190 121 / 63%);
+}
+
+
+
+.title-genres {
+  
+    margin-top: 5px;
+
+}
+.title-genres h4 {
+    margin: 0;
+    padding: 0;
+}
+.generos {
+margin: 0;
+padding: 0;
+}
+.generos p {
+    margin: 5px 0 5px 0;
+ 
+}
+
+
+
+
+.container-genres {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila si no caben */
+    gap: 10px; 
+    row-gap: 0;/* Espaciado uniforme entre géneros */
+    margin: 5px 0; /* Margen adicional entre el contenedor de géneros y otros elementos */
+}
+
+.container-genres p {
+    background-color: orange;
+    margin: 0;
+    border-radius: 5px;
+    font-size: small;
+    padding: 5px 10px; /* Más espacio dentro del botón */
+    color: white; /* Contraste con el fondo */
+    font-weight: bold;
+    font-size: xx-small;
+    text-align: center;
+}
+
+
+.btn-genre {
+    background-color: orange;
+}
+
+
+.shadow-sm {
+    margin-top: 10px;
+}
+
+
+
+
 
 

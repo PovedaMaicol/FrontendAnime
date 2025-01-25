@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Table, Badge, Card, Spinner, Alert } from 'react-bootstrap';
 import './styles/animeId.css';
 
 const AnimeId = () => {
@@ -13,76 +15,120 @@ const AnimeId = () => {
     console.log('el anime es:', animeId); // Verificar que el anime se cargó correctamente  
   }, [id]);
 
-  if (loading) return <p>Cargando anime...</p>;
-  if (error) return <p>Hubo un error al cargar el anime</p>;
+  if (loading) {
+    return (
+      <Container className="text-center py-5">
+        <Spinner animation="border" role="status" variant="primary">
+          <span className="visually-hidden">Cargando...</span>
+        </Spinner>
+        <p>Cargando anime...</p>
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container className="text-center py-5">
+        <Alert variant="danger">Hubo un error al cargar el anime</Alert>
+      </Container>
+    );
+  }
 
   // Verificar si animeId y las propiedades existen antes de renderizarlas
   if (!animeId || !animeId.genres) {
-    return <p>No se pudo cargar la información del anime.</p>;
+    return (
+      <Container className="text-center py-5">
+        <Alert variant="warning">No se pudo cargar la información del anime.</Alert>
+      </Container>
+    );
   }
 
   return (
-    <div style={{ padding: '15px' }}>
+    <Container className="py-4">
+
+        <div className='container-first'>
 
 
-      <section className="first-section">
-        <img
-          src={animeId.images?.webp?.large_image_url}
-          alt={animeId.title}
-          className="container-img"
-        />
+          <Card className="img-card">
+            <Card.Img
+            className='img-anime'
+              variant="top"
+              src={animeId.images?.webp?.large_image_url}
+              alt={animeId.title}
+            />
+          </Card>
+          <div className='container-tablaGenre'>
+          <Table striped bordered hover className='tabla'>
+            <thead className='table-head'>
+              <tr>
+                <th>Atributo</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
 
-        <div className="first-section-info">
-          <h2>{animeId.title}</h2>
 
-          <div className="genres">
-          <p>Generos:</p>
-            {animeId.genres.map((genre) => (
-              <span key={genre.mal_id} className="genre">
-                {genre.name}
-              </span>
-            ))}
-          </div>
-          <br/>
+            <tbody className='table-body'>
+              <tr>
+                <td>Episodios</td>
+                <td>{animeId.episodes || 'Desconocido'}</td>
+              </tr>
+              <tr>
+                <td>Puntaje</td>
+                <td>{animeId.score || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td>Rango</td>
+                <td>{animeId.rank || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td>Miembros</td>
+                <td>{animeId.members.toLocaleString()}</td>
+              </tr>
+              <tr>
+                <td>Estado</td>
+                <td>{animeId.status}</td>
+              </tr>
+            </tbody>
+          </Table>
+          </div>   
 
-          <table className="anime-info-table">
-        <thead>
-          <tr>
-            <th>Atributo</th>
-            <th>Valor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Episodios</td>
-            <td>{animeId.episodes}</td>
-          </tr>
-          <tr>
-            <td>Puntaje</td>
-            <td>{animeId.score}</td>
-          </tr>
-          <tr>
-            <td>Rango</td>
-            <td>{animeId.rank}</td>
-          </tr>
-          <tr>
-            <td>Miembros</td>
-            <td>{animeId.members}</td>
-          </tr>
-          <tr>
-            <td>Estado</td>
-            <td>{animeId.status}</td>
-          </tr>
-        </tbody>
-          </table>
 
         </div>
-      </section>
-<br/>
-      <p>{animeId.synopsis}</p>
+
+        <div className='title-genres'> 
+        <h4 >{animeId.title}</h4>
+
+
+  <div className='generos'> 
+    <p className="text-primary">Géneros:</p>
+  <div className="container-genres">
+    {animeId.genres.map((genre) => (
+      <p key={genre.mal_id} >
+         {genre.name}
+      </p>
+       
+    
+    ))}
+  </div>
+</div>
+
+        </div>
 
       
-    </div>
+
+      
+
+        
+   
+
+
+      <Card className="shadow-sm">
+        <Card.Body>
+          <Card.Title>Sinopsis</Card.Title>
+          <Card.Text>{animeId.synopsis}</Card.Text>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 };
 
