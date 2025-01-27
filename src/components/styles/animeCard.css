@@ -1,59 +1,61 @@
 .cont_card {
-    position: relative; /* Establece el contexto para los elementos posicionados */
-    color: black;
-    text-align: center;
-  }
-  
-  .anime_img {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 5px;
-    background-color: orange;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card_status {
-    position: absolute;
-    top: 10px; /* Posiciona el estado cerca de la parte superior */
-    left: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: 400;
-    color: white;
-    font-size: x-small;
-    z-index: 3;
-    box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 1);
-  }
+  position: relative;
+  color: black;
+  text-align: center;
+}
 
-  .finished {
-    background-color: #f66632; /* Cambia según el estado */
-  }
+.anime_img {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: orange;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-  .broadcast {
-    background-color: green;
-  }
-  
-  .card_episodes {
-    position: absolute;
-    top: 10px; /* Ajusta según lo necesario */
-    right: 10px; /* Posiciona en la esquina superior derecha */
-    padding: 5px 10px;
-    background-color:#73bf8c;
-    color: white;
-    border-radius: 5px;
-    font-size: x-small;
-    z-index: 3;
-    box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 1);
-  }
-  
-  .card_title {
-    text-decoration:none;
-    line-height: 1;
-    margin-top: 10px;
-    font-weight: bold;
-   
-  }
+.card_status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 400;
+  color: white;
+  font-size: x-small;
+  z-index: 3;
+  box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 1);
+}
 
+.finished {
+  background-color: #f66632;
+}
 
+.broadcast {
+  background-color: green;
+}
+
+.card_episodes {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: #73bf8c;
+  color: white;
+  border-radius: 5px;
+  font-size: x-small;
+  z-index: 3;
+  box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 1);
+}
+
+.cont_card .card_title {
+  text-decoration: none !important;
+  line-height: 1;
+  margin-top: 10px;
+  font-weight: bold;
+  color: inherit;
+}
+
+.cont_card > .card_title {
+  text-decoration: none !important;
+}
  

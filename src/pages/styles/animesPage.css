@@ -6,8 +6,16 @@
     gap: 10px;
     justify-content: center;
     padding: 20px;
+    text-decoration: none;
 }
 
 .container-cards:has(.card:nth-child(1):only-child) {
     grid-template-columns: repeat(2, minmax(150px, 1fr));
+}
+a {
+    text-decoration: none;
+}
+
+p {
+    text-decoration: none;
 }

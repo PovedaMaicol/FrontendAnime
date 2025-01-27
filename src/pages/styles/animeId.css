@@ -98,11 +98,22 @@ padding: 0;
     background-color: orange;
 }
 
+.btn-link {
+    margin: 0;
+    padding: 0;
+
+    text-decoration: none;
+}
 
 .shadow-sm {
     margin-top: 10px;
 }
 
+
+.sinopsis {
+    line-height: 1.5;
+    font-size: 14px;
+}
 
 
 

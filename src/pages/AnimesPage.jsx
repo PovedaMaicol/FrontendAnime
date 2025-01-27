@@ -67,7 +67,7 @@ const AnimesPage = ({ openSearch, setOpenSearch }) => {
           </p>
         ) : (
           displayedAnimes.map((anime) => (
-            <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
+            <Link  style={{textDecoration: 'none'}}to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
               <AnimeCard anime={anime} />
             </Link>
           ))

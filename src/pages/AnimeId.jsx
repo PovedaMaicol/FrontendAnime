@@ -1,19 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Table, Badge, Card, Spinner, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Table, Badge, Card, Spinner, Alert, Button } from 'react-bootstrap';
 import './styles/animeId.css';
 
 const AnimeId = () => {
   const { id } = useParams(); // Capturo el id del anime desde la URL
   const { data: animeId, fetchData, loading, error } = useFetch(); // Obtener la data del anime específico
+  const [showFullSynopsis, setShowFullSynopsis] = useState(false);
 
   useEffect(() => {
     const url = `https://api.jikan.moe/v4/anime/${id}`;
     fetchData(url); // Llamar a la función fetchData con la URL específica
     console.log('el id es:', id); // Verificar que el anime se cargó correctamente  
   }, [id]);
+
+  const toggleSynopsis = () => {
+    setShowFullSynopsis(!showFullSynopsis); // Cambiar el estado de showFullSynopsis
+  };
+
+
+  const getResumeSynopsis = (synopsis) => {
+    const parts = synopsis.split('.'); // Dividir la sinopsis en partes
+    const firstPart = parts.slice(0, 2).join('.') + '.'; // Tomar las primeras dos partes y unirlas
+    const secondPart = parts.slice(2).join('.'); // Guardar el resto de la sinopsis
+    return { firstPart, secondPart }; // Retornar las dos partes
+  };
 
   if (loading) {
     return (
@@ -42,6 +55,10 @@ const AnimeId = () => {
       </Container>
     );
   }
+
+  const { firstPart, secondPart } = getResumeSynopsis(animeId.synopsis || '');
+
+
 
   return (
     <Container className="py-4">
@@ -125,7 +142,24 @@ const AnimeId = () => {
       <Card className="shadow-sm">
         <Card.Body>
           <Card.Title>Sinopsis</Card.Title>
-          <Card.Text>{animeId.synopsis}</Card.Text>
+          <Card.Text className='sinopsis'>
+          { showFullSynopsis ? (
+            <>
+            {firstPart + secondPart}
+            <Button  variant='link' onClick={toggleSynopsis}>
+            Mostrar menos
+            </Button>
+            
+            </>
+          ) : (
+            <>
+            {firstPart}
+            <Button variant='link' onClick={toggleSynopsis}>
+            Mostrar mas
+            </Button>
+            </>
+          )}
+          </Card.Text>
         </Card.Body>
       </Card>
     </Container>
