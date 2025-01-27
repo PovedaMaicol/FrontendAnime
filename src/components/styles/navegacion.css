@@ -1,6 +1,5 @@
 .container_menu {
-    padding-left: 15px;
-    padding-right: 15px; 
+
     position: 'fixed';
     top: '0';
     width: '100%';
@@ -10,9 +9,12 @@
 
 
 }
+.bg-dark{
+    padding: 15px;
+}
 
 .container_searchmenu {
-    width: 25%;
+
  
     display: flex;
     justify-content: space-between;

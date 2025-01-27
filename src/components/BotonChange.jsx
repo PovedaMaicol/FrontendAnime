@@ -1,26 +1,33 @@
-import React from 'react'
-import { Button } from 'react-bootstrap'
-import './styles/botonChange.css'
-// import { Link } from 'react-router-dom'
-
+import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import './styles/botonChange.css';
 
 const BotonChange = ({ setShowPopular }) => {
+  const [activeButton, setActiveButton] = useState('all'); // 'all' o 'popular'
 
   return (
-    <div className='container_buttons'>
-        <Button  
-          onClick={() => setShowPopular(false)}
-          className='btn1 btn-primary'>
-            todos los animes
-        </Button>
+    <div className="container_buttons">
+      <Button
+        onClick={() => {
+          setShowPopular(false);
+          setActiveButton('all');
+        }}
+        className={`btn1 custom-btn ${activeButton === 'all' ? 'active' : 'inactive'}`}
+      >
+        todos los animes
+      </Button>
 
-        <Button 
-          onClick={() => setShowPopular(true)}
-          className='btn2'>
-            Animes mas vistos
-        </Button>
+      <Button
+        onClick={() => {
+          setShowPopular(true);
+          setActiveButton('popular');
+        }}
+        className={`btn2 custom-btn ${activeButton === 'popular' ? 'active' : 'inactive'}`}
+      >
+        Animes más vistos
+      </Button>
     </div>
+  );
+};
 
-)}
-// state={{populares}}
-export default BotonChange
+export default BotonChange;

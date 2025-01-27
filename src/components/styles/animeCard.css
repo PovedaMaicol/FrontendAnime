@@ -48,13 +48,12 @@
   }
   
   .card_title {
-    text-decoration: none;
+    text-decoration:none;
     line-height: 1;
     margin-top: 10px;
     font-weight: bold;
+   
   }
 
-  a {
-    text-decoration: none;
-  }
-  
+
+ 

@@ -14,7 +14,7 @@ bg='dark'
 variant="dark" 
 className='container_menu'>
   
-<h1 style={{color: 'white'}}>Otaku fan</h1>
+<h1 style={{color: 'white', paddingLeft: '10px'}}>faniime</h1>
 
 
 

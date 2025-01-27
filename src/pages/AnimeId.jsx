@@ -12,7 +12,7 @@ const AnimeId = () => {
   useEffect(() => {
     const url = `https://api.jikan.moe/v4/anime/${id}`;
     fetchData(url); // Llamar a la función fetchData con la URL específica
-    console.log('el anime es:', animeId); // Verificar que el anime se cargó correctamente  
+    console.log('el id es:', id); // Verificar que el anime se cargó correctamente  
   }, [id]);
 
   if (loading) {
@@ -99,7 +99,7 @@ const AnimeId = () => {
         <h4 >{animeId.title}</h4>
 
 
-  <div className='generos'> 
+        <div className='generos'> 
     <p className="text-primary">Géneros:</p>
   <div className="container-genres">
     {animeId.genres.map((genre) => (
@@ -110,7 +110,7 @@ const AnimeId = () => {
     
     ))}
   </div>
-</div>
+        </div>
 
         </div>
 
