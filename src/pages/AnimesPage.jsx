@@ -5,6 +5,7 @@ import AnimeCard from "../components/AnimeCard";
 import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import BotonChange from "../components/BotonChange";
+import BotonsPage from "../components/BotonsPage";
 // import env from "react-dotenv";
 
 const AnimesPage = ({ openSearch, setOpenSearch }) => {
@@ -13,6 +14,7 @@ const AnimesPage = ({ openSearch, setOpenSearch }) => {
 
   // Estado para manejar la búsqueda
   const [searchTerm, setSearchTerm] = useState("");
+  const [numberPage, setNumberPage] = useState(1)
 
   // Estado para manejar si se muestran populares o no
   const [showPopular, setShowPopular] = useState(false);
@@ -20,9 +22,11 @@ const AnimesPage = ({ openSearch, setOpenSearch }) => {
   // Obtener animes al cargar el componente
   useEffect(() => {
     const url = import.meta.env.VITE_API_URL;
+    
+    // `${url}?page=${numberPage}3&limit=25`
     // const url = 'https://api.jikan.moe/v4/anime'
-    fetchData(url);
-  }, []);
+    fetchData(`${url}?page=${numberPage}&limit=25`);
+  }, [numberPage]);
 
   if (loading) return <p>Cargando animes...</p>;
   if (error) return <p>Hubo un error al cargar los animes</p>;
@@ -73,6 +77,10 @@ const AnimesPage = ({ openSearch, setOpenSearch }) => {
           ))
         )}
       </div>
+
+      <BotonsPage
+      numberPage={numberPage}
+      setNumberPage={setNumberPage}/>
     </div>
   );
 };
